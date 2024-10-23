@@ -16,3 +16,17 @@ for (let i = 1; i <= 5; i++) {
     }
 }
 
+// Break and Continue
+for (let i = 0; i < 10; i++) {
+    if (i == 5) {
+        continue; // i ki value 5 hote hi skip kardo
+    }
+    console.log(i);
+}
+
+for (let i = 0; i < 10; i++) {
+    if (i == 5) {
+        break; // i ki value 5 hote hi loop tut jaayega
+    }
+    console.log(i);
+}
