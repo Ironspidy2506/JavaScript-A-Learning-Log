@@ -26,19 +26,16 @@ console.log(jsUser["full name"]);
 console.log(jsUser[mySym]); // Correct way to use symbol
 
 jsUser.email = "priyanshu@rediff.com"; // Change user email
-Object.freeze(jsUser); // Object is freezed so values cannot be changed after freezing
+
+// Object.freeze(jsUser); // Object is freezed so values cannot be changed after freezing
+
 jsUser.email = "priyanshu@inkmail.com"; // Changes does not reflect
-console.log(jsUser);
+// console.log(jsUser);
 
-jsUser.greeting
+jsUser.greeting = function () {
+    console.log(`Hello, Js User, ${this.name}`)
+}
 
+console.log(jsUser.greeting); // Anonymous Function
 
-
-
-
-
-
-
-
-// Constructor
-// Object.create
+console.log(jsUser.greeting()); // Returns fucntion value
