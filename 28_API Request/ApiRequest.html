@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Request</title>
+    <style>
+      td {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body style="background-color: #212121; color: whitesmoke">
+    <table>
+      <thead>
+        <tr>
+          <th>Value</th>
+          <th>State</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0</td>
+          <td>UNSENT</td>
+          <td>Client has been created. open() not called yet.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>OPENED</td>
+          <td>open() has been called.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>HEADERS_RECEIVED</td>
+          <td>send() has been called, and headers and status are available.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>LOADING</td>
+          <td>Downloading; responseText holds partial data.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>DONE</td>
+          <td>The operation is complete.</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+  <script>
+    const requestUrl = "https://randomuser.me/api/";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", requestUrl);
+    // console.log('HERE');
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+      if (xhr.readyState === 4) {
+        const data = JSON.parse(this.responseText);
+        console.log(typeof data); // Because it is string we are not able to access the object properties below
+        console.log(data["results"]); // this keyword for current context
+      }
+    };
+    // console.log(xhr.readyState);
+    xhr.send();
+
+    // V8 Engine
+    // Gives access to debugging tools and API access to all developers
+    // https://github.com/v8/v8
+  </script>
+</html>
