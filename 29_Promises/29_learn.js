@@ -8,4 +8,5 @@ Promise has 3 States
 1) Pending
 2) Fulfilled
 3) Rejected
+
 */
